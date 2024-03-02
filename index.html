@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .calculator {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .input-label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .input-field {
+            font-size: 18px;
+            padding: 8px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100px;
+        }
+
+        .calculate-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .calculate-button:hover {
+            background-color: #0056b3;
+        }
+
+        .result-box {
+            background-color: lightblue;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Pill Dispensing Calculator</h1>
+        <form id="calculator-form">
+            <label for="pill-per-dose-input" class="input-label">Pills per Dose:</label><br>
+            <input type="number" id="pill-per-dose-input" class="input-field" required><br>
+
+            <label for="times-per-day-input" class="input-label">Times per Day:</label><br>
+            <input type="number" id="times-per-day-input" class="input-field" required><br>
+
+            <label for="total-days-input" class="input-label">Total Days:</label><br>
+            <input type="number" id="total-days-input" class="input-field" required><br>
+
+            <button type="button" onclick="calculate()" class="calculate-button">Calculate</button>
+        </form>
+        <div id="result-container" class="result-box"></div>
+    </div>
+
+    <script>
+        function calculate() {
+            var pillsPerDose = parseFloat(document.getElementById('pill-per-dose-input').value);
+            var timesPerDay = parseFloat(document.getElementById('times-per-day-input').value);
+            var totalDays = parseFloat(document.getElementById('total-days-input').value);
+
+            var totalPills = pillsPerDose * timesPerDay * totalDays;
+
+            document.getElementById('result-container').innerText = "Total Pills Needed: " + totalPills;
+        }
+    </script>
+</body>
+</html>
